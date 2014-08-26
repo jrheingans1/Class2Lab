@@ -8,9 +8,9 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,10 +18,9 @@ import model.NameChanger;
 
 /**
  *
- * @author jrheingans1
+ * @author James
  */
-@WebServlet(name = "PageGenerator", urlPatterns = {"/pager"})
-public class PageGenerator extends HttpServlet {
+public class PageGenerator2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,7 +42,28 @@ public class PageGenerator extends HttpServlet {
         
         RequestDispatcher view = 
                 request.getRequestDispatcher("/reponse.jsp");
-        view.forward(request, response);
+        view.forward(request, response); 
+        
+        Object obj = request.getAttribute("name");
+            if(obj == null){
+                out.println("Sorry something went wrong");
+            } else{
+                out.println(obj.toString());
+            }
+            
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Name Changer</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Name Changed to: " + request.getAttribute("name") + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

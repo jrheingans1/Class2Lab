@@ -33,16 +33,6 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        String name = request.getParameter("name");
-        NameChanger nameChanger = new NameChanger();
-        String result = nameChanger.processName(name);
-        
-        request.setAttribute("name", result);
-        
-        RequestDispatcher view = 
-                request.getRequestDispatcher("/reponse.jsp");
-        view.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

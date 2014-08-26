@@ -4,9 +4,17 @@
         <servlet-name>MainController</servlet-name>
         <servlet-class>controller.MainController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PageGenerator2</servlet-name>
+        <servlet-class>controller.PageGenerator2</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PageGenerator2</servlet-name>
+        <url-pattern>/PageGenerator2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
